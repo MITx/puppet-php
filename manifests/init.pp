@@ -1,9 +1,9 @@
 
-class php5 {
-  include php5::package
+class php {
+  include php::install
 }
 
-class php5::package {
+class php::install {
 
   $pkg = $operatingsystem ? {
     centos => "php",
@@ -18,11 +18,11 @@ class php5::package {
 }
 
 
-class php5::apache {
-  include php5::apache::package
+class php::apache {
+  include php::apache::package
 }
 
-class php5::apache::package {
+class php::apache::package {
 
   $pkg = $operatingsystem ? {
     debian => "libapache2-mod-php5",
@@ -34,11 +34,11 @@ class php5::apache::package {
 }
 
 
-class php5::cli {
-  include php5::cli::package
+class php::cli {
+  include php::cli::package
 }
 
-class php5::cli::package {
+class php::cli::package {
 
   $pkg = $operatingsystem ? {
     debian => "php5-cli",
@@ -50,13 +50,13 @@ class php5::cli::package {
 }
 
 
-class php5::mysql {
-  include php5::mysql::package
+class php::mysql {
+  include php::mysql::package
 }
 
-class php5::mysql::package {
+class php::mysql::package {
 
-  include php5::package
+  include php::package
 
   $pkg = $operatingsystem ? {
     centos => "php-mysql",
@@ -66,19 +66,19 @@ class php5::mysql::package {
 
   package { $pkg :
     ensure => installed,
-    require => Class["php5::package"],
+    require => Class["php::package"],
   }
 
 }
 
 
-class php5::gd {
-  include php5::gd::package
+class php::gd {
+  include php::gd::package
 }
 
-class php5::gd::package {
+class php::gd::package {
 
-  include php5::package
+  include php::package
 
   $pkg = $operatingsystem ? {
     debian => "php5-gd",
@@ -86,19 +86,19 @@ class php5::gd::package {
 
   package { $pkg :
     ensure  => installed,
-    require => Class["php5::package"],
+    require => Class["php::package"],
   }
 
 }
 
 
-class php5::apc {
-  include php5::apc::package
+class php::apc {
+  include php::apc::package
 }
 
-class php5::apc::package {
+class php::apc::package {
 
-  include php5::package
+  include php::package
 
   $pkg = $operatingsystem ? {
     debian => "php-apc"
@@ -106,17 +106,17 @@ class php5::apc::package {
   
   package { $pkg :
     ensure  => installed,
-    require => Class["php5::package"],
+    require => Class["php::package"],
   }
 
 }
 
 
-class php5::curl {
-  include php5::curl::package
+class php::curl {
+  include php::curl::package
 }
 
-class php5::curl::package {
+class php::curl::package {
 
   $pkg = $operatingsystem ? {
     debian => "php5-curl"
