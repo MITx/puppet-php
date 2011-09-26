@@ -37,7 +37,7 @@ class php::sapi::apache::configure (
 	}
 
 	file { $php_ini_d :
-		ensure => directory,
+		ensure => present,
 		recurse => true,
 	}
 
