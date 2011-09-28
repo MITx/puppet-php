@@ -7,11 +7,8 @@
 #
 class php::sapi::apache {
 
-	notify { "Installing php for apache" : }
-
 	include php::sapi::apache::install
 	include php::sapi::apache::configure
-
 
 }
 
@@ -31,7 +28,6 @@ class php::sapi::apache::configure (
 	$php_ini_d = $php::params::sapi_apache_config_d
 ) inherits php::params {
 
-
 	file { $php_ini :
 		ensure => present,
 	}
@@ -43,5 +39,6 @@ class php::sapi::apache::configure (
 
 	Class['php::sapi::apache::install'] -> Class['php::sapi::apache::configure']
 	Class['php::sapi::apache::configure'] ~> Class['apache::service']
+
 }
 
