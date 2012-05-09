@@ -13,4 +13,11 @@ class php::params {
 	$sapi_cgi_config = "/etc/php5/cgi/php.ini"
 	$sapi_cgi_config_d = "/etc/php5/cgi/conf.d"
 
+	$sapi_fpm_packages = ['php5-fpm']
+	$sapi_fpm_config = "/etc/php5/fpm/php.ini"
+	$sapi_fpm_config_d = "/etc/php5/fpm/conf.d"
+	$sapi_fpm_config_service = "/etc/php5/fpm/php-fpm.conf"
+	$sapi_fpm_pools = "/etc/php5/fpm/pool.d"
+	$sapi_fpm_service = "php5-fpm"
+
 }
