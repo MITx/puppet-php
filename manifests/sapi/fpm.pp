@@ -19,6 +19,13 @@ class php::sapi::fpm::install (
 		ensure => installed,
 	}
 
+	file { "/var/log/php5-fpm" :
+		ensure => 'directory',
+		owner => root,
+		group => root,
+		mode => 0750,
+	}
+
 }
 
 class php::sapi::fpm::configure (
